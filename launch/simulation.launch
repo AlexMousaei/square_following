@@ -1,0 +1,15 @@
+<launch>
+    <!-- Load the Turtlebot3 URDF to the parameter server -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_waffle_pi.urdf.xacro" />
+
+    <!-- Start Gazebo with the custom world -->
+    <include file="$(find square_following)/launch/start_gazebo.launch"/>
+
+    <!-- Spawn the Turtlebot -->
+    <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -param robot_description -model turtlebot3 -x 0 -y 0 -z 0" />
+
+    <!-- Run the square following node -->
+    <node name="square_following_node" pkg="square_following" type="square_follower_node.py" output="screen"/>
+</launch>
+
