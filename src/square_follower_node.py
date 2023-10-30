@@ -6,6 +6,7 @@ import numpy as np
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
 from cv_bridge import CvBridge
+import subprocess
 
 class SquareFollower:
 
@@ -18,6 +19,7 @@ class SquareFollower:
         self.bridge = CvBridge()
         self.image_sub = rospy.Subscriber("/camera/rgb/image_raw", Image, self.image_callback)
         self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+        subprocess.Popen(["rqt_image_view", "/camera/rgb/image_raw"])
 
         # Initialize the robot's state
         self.state = SquareFollower.SEARCHING
