@@ -20,5 +20,6 @@ Check dependencies
 
 Follow "sim_setup_guide"
 
+Python 2.7.17
 18.04
 Melodic Full Desktop
