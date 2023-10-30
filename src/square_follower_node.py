@@ -18,7 +18,7 @@ class SquareFollower:
     STOPPED = "stopped"
 
     def __init__(self):
-        # Initialize CvBridge
+        # Initialise CvBridge
         self.bridge = CvBridge()
         
         # Subscribing to camera image feed and setting up a publisher for velocity commands
@@ -28,19 +28,19 @@ class SquareFollower:
         # Starting an image view window using rqt_image_view
         subprocess.Popen(["rqt_image_view", "/camera/rgb/image_raw"])
 
-        # Initialize the robot's state to SEARCHING
+        # Initialise the robot's state to SEARCHING
         self.state = SquareFollower.SEARCHING
         
         # Define a buffer threshold for object center alignment
         self.buffer_threshold = 20
 
-        # Initialize counter for missed frames
+        # Initialise counter for missed frames
         self.missed_frames = 0
         
         # Define a threshold for maximum missed frames before searching
         self.missed_frames_threshold = 5
 
-        # Log initialization complete
+        # Log initialisation complete
         rospy.loginfo("Square follower node initialised.")
 
     # Callback function for image data
