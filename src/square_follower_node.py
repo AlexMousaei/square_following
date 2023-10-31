@@ -15,7 +15,6 @@ class SquareFollower:
     # Defining states for state machine logic
     SEARCHING = "searching"
     FOLLOWING = "following"
-    STOPPED = "stopped"
 
     def __init__(self):
         # Initialise CvBridge
